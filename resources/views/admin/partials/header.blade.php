@@ -4,7 +4,7 @@
         <i class="fa fa-bars"></i>
     </div>
     <!--logo start-->
-    <a href="index.html" class="logo">Flat<span>lab</span></a>
+    <a href="#" class="logo">Flat<span>lab</span></a>
     <!--logo end-->
     <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
@@ -105,7 +105,7 @@
                     </li>
                     <li>
                         <a href="#">
-                            <span class="photo"><img alt="avatar" src="img/avatar-mini.jpg"></span>
+                            <span class="photo"><img alt="avatar" src="{{ asset('admin/img/avatar-mini.jpg') }}"></span>
                             <span class="subject">
                                     <span class="from">Jonathan Smith</span>
                                     <span class="time">Just now</span>
@@ -115,42 +115,7 @@
                                     </span>
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <span class="photo"><img alt="avatar" src="img/avatar-mini2.jpg"></span>
-                            <span class="subject">
-                                    <span class="from">Jhon Doe</span>
-                                    <span class="time">10 mins</span>
-                                    </span>
-                            <span class="message">
-                                     Hi, Jhon Doe Bhai how are you ?
-                                    </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span class="photo"><img alt="avatar" src="img/avatar-mini3.jpg"></span>
-                            <span class="subject">
-                                    <span class="from">Jason Stathum</span>
-                                    <span class="time">3 hrs</span>
-                                    </span>
-                            <span class="message">
-                                        This is awesome dashboard.
-                                    </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span class="photo"><img alt="avatar" src="img/avatar-mini4.jpg"></span>
-                            <span class="subject">
-                                    <span class="from">Jondi Rose</span>
-                                    <span class="time">Just now</span>
-                                    </span>
-                            <span class="message">
-                                        Hello, this is metrolab
-                                    </span>
-                        </a>
-                    </li>
+
                     <li>
                         <a href="#">See all messages</a>
                     </li>
@@ -221,7 +186,7 @@
             <!-- user login dropdown start-->
             <li class="dropdown">
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                    <img alt="" src="img/avatar1_small.jpg">
+                    <img alt="" src="{{ asset('admin/img/avatar1_small.jpg') }}">
                     <span class="username">{{ optional(\Illuminate\Support\Facades\Auth::user())->name }}</span>
                     <b class="caret"></b>
                 </a>

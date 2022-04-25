@@ -4,7 +4,7 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
             <li>
-                <a class="active" href="index.html">
+                <a class="active" href="{{ route('home') }}">
                     <i class="fa fa-dashboard"></i>
                     <span>Dashboard</span>
                 </a>
@@ -16,7 +16,7 @@
                     <span>Product</span>
                 </a>
                 <ul class="sub">
-                    <li><a  href="boxed_page.html">Index</a></li>
+                    <li><a  href="{{ route('product.index') }}">Index</a></li>
                 </ul>
             </li>
 

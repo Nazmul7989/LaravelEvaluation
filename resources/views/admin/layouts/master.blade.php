@@ -4,12 +4,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="Mosaddek">
-    <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-    <link rel="shortcut icon" href="img/favicon.html">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>FlatLab - Flat & Responsive Bootstrap Admin Template</title>
+    <meta name="description" content="">
+    <meta name="author" content="Nazmul">
+    <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <link rel="shortcut icon" href="#">
+
+    <title>Writing Test</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('admin/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -22,10 +25,20 @@
     <!--right slidebar-->
     <link href="{{ asset('admin/css/slidebars.css') }}" rel="stylesheet">
 
+    <!--dynamic table-->
+    <link href="{{ asset('admin/assets/advanced-datatable/media/css/demo_page.css') }}" rel="stylesheet" />
+    <link href="{{ asset('admin/assets/advanced-datatable/media/css/demo_table.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('admin/assets/data-tables/DT_bootstrap.css') }}" />
+
+    <!--  summernote -->
+    <link href="{{ asset('admin/assets/summernote/dist/summernote.css') }}" rel="stylesheet">
+
     <!-- Custom styles for this template -->
 
     <link href="{{ asset('admin/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/css/style-responsive.css') }}" rel="stylesheet" />
+
+
 
 </head>
 
@@ -36,7 +49,16 @@
     @include('admin.partials.sidebar')
 
 
-   @yield('content')
+    <!--main content start-->
+        <section id="main-content">
+            <section class="wrapper">
+
+                @yield('content')
+
+            </section>
+        </section>
+        <!--main content end-->
+
 
 
     @include('admin.partials.footer')
@@ -50,8 +72,6 @@
 <script class="include" type="text/javascript" src="{{ asset('admin/js/jquery.dcjqaccordion.2.7.js') }}"></script>
 <script src="{{ asset('admin/js/jquery.scrollTo.min.js') }}"></script>
 <script src="{{ asset('admin/js/jquery.nicescroll.js') }}" type="text/javascript"></script>
-<script src="{{ asset('admin/js/jquery.sparkline.js') }}" type="text/javascript></script>
-<script src="{{ asset('admin/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js') }}"></script>
 <script src="{{ asset('admin/js/owl.carousel.js') }}"></script>
 <script src="{{ asset('admin/js/jquery.customSelect.min.js') }}" ></script>
 <script src="{{ asset('admin/js/respond.min.js') }}" ></script>
@@ -62,38 +82,85 @@
 <!--common script for all pages-->
 <script src="{{ asset('admin/js/common-scripts5e1f.js?v=2') }}"></script>
 
+<!--data table-->
+<script type="text/javascript" src="{{ asset('admin/assets/advanced-datatable/media/js/jquery.dataTables.js') }}"></script>
+<script type="text/javascript" src="{{ asset('admin/assets/data-tables/DT_bootstrap.js') }}"></script>
+<script type="text/javascript" src="{{ asset('admin/js/dynamic_table_init.js') }}"></script>
+<script type="text/javascript" src="{{ asset('admin/js/common-scripts.js') }}"></script>
+
 <!--script for this page-->
-<script src="{{ asset('admin/js/sparkline-chart.js') }}"></script>
-<script src="{{ asset('admin/js/easy-pie-chart.js') }}"></script>
+{{--<script src="{{ asset('admin/js/sparkline-chart.js') }}"></script>--}}
+{{--<script src="{{ asset('admin/js/easy-pie-chart.js') }}"></script>--}}
 <script src="{{ asset('admin/js/count.js') }}"></script>
 
+<!--summernote-->
+<script src="{{ asset('admin/assets/summernote/dist/summernote.min.js') }}"></script>
 <script>
 
-    //owl carousel
+    jQuery(document).ready(function(){
 
-    $(document).ready(function() {
-        $("#owl-demo").owlCarousel({
-            navigation : true,
-            slideSpeed : 300,
-            paginationSpeed : 400,
-            singleItem : true,
-            autoPlay:true
+        $('.summernote').summernote({
+            height: 200,                 // set editor height
 
+            minHeight: null,             // set minimum height of editor
+            maxHeight: null,             // set maximum height of editor
+
+            focus: true                 // set focus to editable area after initializing summernote
         });
     });
 
-    //custom select box
-
-    $(function(){
-        $('select.styled').customSelect();
-    });
-
-    $(window).on("resize",function(){
-        var owl = $("#owl-demo").data("owlCarousel");
-        owl.reinit();
-    });
-
 </script>
+
+{{--delete confirmation by using sweet alert--}}
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{{--<script>--}}
+{{--    $(function (){--}}
+{{--        $(document).on('click','#delete',function (e){--}}
+{{--            e.preventDefault();--}}
+
+{{--            var link = $(this).attr('href');--}}
+
+{{--            Swal.fire({--}}
+{{--                title: 'Are you sure?',--}}
+{{--                text: "You won't be able to revert this!",--}}
+{{--                icon: 'warning',--}}
+{{--                showCancelButton: true,--}}
+{{--                confirmButtonColor: '#3085d6',--}}
+{{--                cancelButtonColor: '#d33',--}}
+{{--                confirmButtonText: 'Yes, delete it!'--}}
+{{--            }).then((result) => {--}}
+{{--                if (result.isConfirmed) {--}}
+{{--                    window.location.href = link;--}}
+{{--                    Swal.fire(--}}
+{{--                        'Deleted!',--}}
+{{--                        'Your file has been deleted.',--}}
+{{--                        'success'--}}
+{{--                    )--}}
+{{--                }--}}
+{{--            })--}}
+
+{{--        })--}}
+{{--    })--}}
+{{--</script>--}}
+
+{{--image select--}}
+<script>
+    $(document).ready(function (){
+        $('#thumbnail').change(function (e){
+            var reader = new FileReader();
+            reader.onload = function (e){
+                $('#showImage').attr('src',e.target.result);
+            }
+
+            reader.readAsDataURL(e.target.files['0'])
+        })
+
+    })
+</script>
+
+
+
+@stack('script');
 
 </body>
 </html>
