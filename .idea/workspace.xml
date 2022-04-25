@@ -25,15 +25,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="98b70235-38d7-4b82-b9a0-ee8d462cdf60" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/product/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/LaravelEvaluation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/LaravelEvaluation.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Subcategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Subcategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/dynamic_table_init.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/dynamic_table_init.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/products/Product_1650872966.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/products/Product_1650873420.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/products/Product_1650873570.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/products/Product_1650882969.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/partials/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/partials/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/partials/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/partials/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/product/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +196,7 @@
       <updated>1650793738927</updated>
       <workItem from="1650793740267" duration="10101000" />
       <workItem from="1650858593605" duration="19795000" />
-      <workItem from="1650880877683" duration="1900000" />
+      <workItem from="1650880877683" duration="15727000" />
     </task>
     <servers />
   </component>
@@ -219,13 +220,17 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1650869672659" />
+    <state x="501" y="135" key="NewPhpClassDialog" timestamp="1650894294610">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="501" y="135" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1650894294610" />
     <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1650880517949">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1650880517949" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1650881123850">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1650894930138">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1650881123850" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1650894930138" />
   </component>
 </project>

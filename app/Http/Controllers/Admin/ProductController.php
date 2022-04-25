@@ -11,16 +11,27 @@ class ProductController extends Controller
 {
     public function index()
     {
+        $data['products'] = Product::with('sub_category.category')
+            ->select('id','title','price','subcategory_id','description','thumbnail')
+            ->get();
+
         $data['subcategories'] = Subcategory::select('id','title')->get();
+
         return view('admin.product.index',$data);
     }
 
-    public function get()
+    public function get(Request $request)
     {
-        $products = Product::with('sub_category:id,title')->select('id','title','price','subcategory_id','description','thumbnail')->get();
+
+        $products = Product::with('sub_category.category')
+            ->select('id','title','price','subcategory_id','description','thumbnail')
+            ->get();
+
+
 
         return response()->json($products);
     }
+
 
     public function store(Request $request)
     {
@@ -50,6 +61,8 @@ class ProductController extends Controller
         ]);
 
 
+
+
     }
 
     public function delete($id)
@@ -69,5 +82,8 @@ class ProductController extends Controller
             'status'  => true,
             'message' => 'Product deleted successfully.'
         ]);
+
+
+
     }
 }

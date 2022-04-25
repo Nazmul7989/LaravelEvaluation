@@ -83,19 +83,37 @@
                 </header>
                 <div class="card-body">
                     <div class="adv-table">
-                        <table  class="display table table-bordered table-striped" id="dynamic-table">
+                        <table  class="display table table-bordered table-striped" id="data">
                             <thead>
                             <tr>
                                 <th>Id</th>
                                 <th>Thumbnail</th>
                                 <th>Title</th>
                                 <th>Price(Tk)</th>
+                                <th >Category</th>
                                 <th >Subcategory</th>
                                 <th>Description</th>
                                 <th >Action</th>
                             </tr>
                             </thead>
                             <tbody id="tBody">
+
+                            @foreach($products as $product)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>
+                                        <img src="{{ asset($product->thumbnail) }}" style="width: 100px;height: 70px;" alt="">
+                                    </td>
+                                    <td>{{ $product->title }}</td>
+                                    <td>{{ $product->price }}</td>
+                                    <td>{{ $product->sub_category->category->title }}</td>
+                                    <td>{{ $product->sub_category->title }}</td>
+                                    <td>{{ $product->description }}</td>
+                                    <td>
+                                        <button class="btn btn-danger btn-sm" onclick="deleteProduct({{ $product->id }})"><i class="fa fa-trash-o"></i></button>
+                                    </td>
+                                </tr>
+                            @endforeach
 
 
                             </tbody>
@@ -117,44 +135,14 @@
 
         $.ajaxSetup({
             headers: {
-                'X-CSRF-TOKEN': '{{ csrf_token() }}' ,
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-
-        function getProduct(){
-
-            //fetch product data
-            $.ajax({
-                url: "{{ route('product.get') }}",
-                dataType: 'json',
-                type: 'GET',
-                success: function(data){
-                    var product = "";
-                   $.each(data,function (key,value){
-                       product = product + '<tr>'
-                       product = product + '<td>' + value.id + '</td>'
-                       product = product + '<td>' + '<img src=" '+value.thumbnail+' " style="width: 100px; height: 70px;">' + '</td>'
-                       product = product + '<td>' + value.title + '</td>'
-                       product = product + '<td>' + value.price + '</td>'
-                       product = product + '<td>' + value.sub_category.title + '</td>'
-                       product = product + '<td>' + value.description + '</td>'
-                       product = product + '<td>' + '<button title="Delete" onclick="deleteProduct('+value.id+')" class="btn btn-danger btn-sm">' + '<i class="fa fa-trash-o">' + '</i>' + '</button>' + '</td>'
-                       product = product + '</tr>'
-                   })
-                    $('#tBody').html(product);
-
-                },
-                error: function(data){
-                    console.log(data);
-                }
-            });
-
-        }
-        getProduct();
 
 
         //delete product
         function deleteProduct(id){
+
 
             Swal.fire({
                         title: 'Are you sure?',
@@ -178,7 +166,6 @@
                                         'Product deleted successfully.',
                                         'success'
                                     )
-                                    getProduct();
 
                                 },
                                 error: function(data){
@@ -251,11 +238,11 @@
             //reset form
             const resetForm = () => {
 
-                title          = "";
-                price          = "";
-                subcategory_id = "";
-                description    = "";
-                thumbnail      = "";
+                $('#title').val('')
+                $('#price').val('');
+                $('#subcategory_id').val('');
+                $('#description').code('');
+                $('#thumbnail').val('');
 
                $('#modalClose').click();
 

@@ -25,13 +25,12 @@
     <!--right slidebar-->
     <link href="{{ asset('admin/css/slidebars.css') }}" rel="stylesheet">
 
-    <!--dynamic table-->
-    <link href="{{ asset('admin/assets/advanced-datatable/media/css/demo_page.css') }}" rel="stylesheet" />
-    <link href="{{ asset('admin/assets/advanced-datatable/media/css/demo_table.css') }}" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ asset('admin/assets/data-tables/DT_bootstrap.css') }}" />
 
     <!--  summernote -->
     <link href="{{ asset('admin/assets/summernote/dist/summernote.css') }}" rel="stylesheet">
+
+    <!--  datatable -->
+    <link href="{{ asset('css/dataTables.min.css') }}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
 
@@ -82,16 +81,14 @@
 <!--common script for all pages-->
 <script src="{{ asset('admin/js/common-scripts5e1f.js?v=2') }}"></script>
 
-<!--data table-->
-<script type="text/javascript" src="{{ asset('admin/assets/advanced-datatable/media/js/jquery.dataTables.js') }}"></script>
-<script type="text/javascript" src="{{ asset('admin/assets/data-tables/DT_bootstrap.js') }}"></script>
-<script type="text/javascript" src="{{ asset('admin/js/dynamic_table_init.js') }}"></script>
-<script type="text/javascript" src="{{ asset('admin/js/common-scripts.js') }}"></script>
 
-<!--script for this page-->
-{{--<script src="{{ asset('admin/js/sparkline-chart.js') }}"></script>--}}
-{{--<script src="{{ asset('admin/js/easy-pie-chart.js') }}"></script>--}}
-<script src="{{ asset('admin/js/count.js') }}"></script>
+<!--datatable-->
+<script src="{{ asset('js/dataTables.min.js') }}"></script>
+<script>
+    $(document).ready(function () {
+        $('#data').DataTable();
+    });
+</script>
 
 <!--summernote-->
 <script src="{{ asset('admin/assets/summernote/dist/summernote.min.js') }}"></script>
@@ -113,35 +110,7 @@
 
 {{--delete confirmation by using sweet alert--}}
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-{{--<script>--}}
-{{--    $(function (){--}}
-{{--        $(document).on('click','#delete',function (e){--}}
-{{--            e.preventDefault();--}}
 
-{{--            var link = $(this).attr('href');--}}
-
-{{--            Swal.fire({--}}
-{{--                title: 'Are you sure?',--}}
-{{--                text: "You won't be able to revert this!",--}}
-{{--                icon: 'warning',--}}
-{{--                showCancelButton: true,--}}
-{{--                confirmButtonColor: '#3085d6',--}}
-{{--                cancelButtonColor: '#d33',--}}
-{{--                confirmButtonText: 'Yes, delete it!'--}}
-{{--            }).then((result) => {--}}
-{{--                if (result.isConfirmed) {--}}
-{{--                    window.location.href = link;--}}
-{{--                    Swal.fire(--}}
-{{--                        'Deleted!',--}}
-{{--                        'Your file has been deleted.',--}}
-{{--                        'success'--}}
-{{--                    )--}}
-{{--                }--}}
-{{--            })--}}
-
-{{--        })--}}
-{{--    })--}}
-{{--</script>--}}
 
 {{--image select--}}
 <script>
